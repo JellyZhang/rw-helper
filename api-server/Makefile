@@ -3,15 +3,25 @@ USERNAME=jelly97
 PROJECT=rw-helper-back
 VERSION=`cat VERSION`
 COMMIT=`git log --pretty=oneline -1 | awk '{print $1}' | cut -c 1-7`
+PORT=5656
 
 .PHONY: build
 
 # Commands
 hello:
-	echo "hello $(VERSION) $(COMMIT)"
+	echo "hello $(VERSION) $(COMMIT)" && \
 
 test:
-	(cd ./internal && go test -v -count=1 ./...)
+	(cd ./internal && \
+		go test -v -count=1 -cover -coverprofile=cover.out ./... && \
+		gocov convert cover.out | gocov-html > cover.html && \
+		open http://0.0.0.0:$(PORT)/cover.html && \
+		python3 -m http.server --bind 0.0.0.0 $(PORT))
+cover:
+	(cd ./internal && \
+		gocov convert cover.out | gocov-html > cover.html && \
+		open http://0.0.0.0:$(PORT)/cover.html && \
+		python3 -m http.server --bind 0.0.0.0 $(PORT))
 
 build:
 	docker build -t $(USERNAME)/$(PROJECT):$(COMMIT)  .
