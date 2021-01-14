@@ -24,7 +24,7 @@ cover:
 		python3 -m http.server --bind 0.0.0.0 $(PORT))
 
 build:
-	docker build -t $(USERNAME)/$(PROJECT):$(COMMIT)  .
+	docker build --no-cache -t $(USERNAME)/$(PROJECT):$(COMMIT)  .
 
 publish: publish-latest
 
