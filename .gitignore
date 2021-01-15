@@ -19,5 +19,6 @@ config.*
 # vendor/
 **/node_modules
 **/token
+**/puppet
 **.memory-card.json
 
