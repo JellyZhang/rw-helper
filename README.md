@@ -9,7 +9,7 @@
 
 ### 截图预览
 
-![Kapture 2021-03-10 at 02.25.59](https://tva1.sinaimg.cn/large/008eGmZEly1goe8psplj5g30ae0mme86.gif)
+![Kapture 2021-03-10 at 02.25.59](./pic/demo.gif)
 
 
 
