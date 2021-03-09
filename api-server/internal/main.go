@@ -22,8 +22,8 @@ func main() {
 	})
 
 	r.POST("/carpool/create", handler.CreateCarpool)
-	r.POST("/carpool/join", handler.JoinCarpool)
+	r.POST("/carpool/update", handler.UpdateCarpool)
 	r.GET("/carpools", handler.GetAllCarpool)
 
-	r.Run()
+	r.Run(":8080")
 }

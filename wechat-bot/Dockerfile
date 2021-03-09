@@ -6,17 +6,17 @@ RUN mkdir /app
 
 WORKDIR /app
 
-ADD ./src ./src
-ADD ./config ./config
-ADD ./package.json ./package.json
-ADD ./package-lock.json ./package-lock.json
-ADD ./tsconfig.json ./tsconfig.json
+COPY ./src ./src
+COPY ./config ./config
+COPY ./package.json ./package.json
+COPY ./package-lock.json ./package-lock.json
+COPY ./tsconfig.json ./tsconfig.json
 
 RUN npm config set registry http://registry.npm.taobao.org
 
-RUN npm install --loglevel verbose
+RUN npm install
 
-RUN npm install typescript -g --loglevel verbose
+RUN npm install typescript@4.1.3 -g
 
 RUN tsc
 

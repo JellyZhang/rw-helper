@@ -4,7 +4,7 @@ RUN mkdir /app
 
 WORKDIR /app
 
-ADD ./internal/ .
+COPY ./internal/ .
 
 RUN GO111MODULE=on go build -o main .
 

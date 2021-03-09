@@ -12,18 +12,10 @@ hello:
 	echo "hello $(VERSION) $(COMMIT)" && \
 
 test:
-	(cd ./internal && \
-		go test -v -count=1 -cover -coverprofile=cover.out ./... && \
-		gocov convert cover.out | gocov-html > cover.html && \
-		open http://0.0.0.0:$(PORT)/cover.html && \
-		python3 -m http.server --bind 0.0.0.0 $(PORT))
-cover:
-	(cd ./internal && \
-		gocov convert cover.out | gocov-html > cover.html && \
-		open http://0.0.0.0:$(PORT)/cover.html && \
-		python3 -m http.server --bind 0.0.0.0 $(PORT))
+	(cd ./internal && goconvey)
 
 build:
+	docker run --rm -i hadolint/hadolint < Dockerfile
 	docker build --no-cache -t $(USERNAME)/$(PROJECT):$(COMMIT)  .
 
 publish: publish-latest
@@ -40,4 +32,4 @@ publish-version: publish-latest
 	docker push $(USERNAME)/$(PROJECT):$(VERSION)
 
 run:
-	(cd ./internal && go run .)
+	(cd ./internal && go vet . && go run .)

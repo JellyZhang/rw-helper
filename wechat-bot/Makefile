@@ -12,6 +12,7 @@ hello:
 
 
 build:
+	docker run --rm -i hadolint/hadolint < Dockerfile
 	docker build --no-cache -t $(USERNAME)/$(PROJECT):$(COMMIT)  .
 
 publish: publish-latest
