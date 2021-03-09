@@ -7,6 +7,14 @@
 
 基于 wechaty 的微信机器人及对应后端服务
 
+
+
+### 技术栈
+
+- 前端：uni-app, vue, typescript
+- 后端Api server： golang, gin, postgreSQL
+- 后端Bot服务: wechaty
+
 ### 截图预览
 
 ![Kapture 2021-03-10 at 02.25.59](./pic/demo.gif)
