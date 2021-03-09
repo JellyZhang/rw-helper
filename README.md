@@ -1,4 +1,4 @@
-# rw-helper-back
+# rw-helper
 
 [![Wechaty Developer Program](https://img.shields.io/badge/Wechaty-Developer%20Program-green.svg)](https://wechaty.js.org/docs/developer-program/)
 [![Powered by Wechaty](https://img.shields.io/badge/Powered%20By-Wechaty-brightgreen.svg)](https://wechaty.js.org)
